@@ -9,6 +9,7 @@ import axios from "axios"
 import { Pagination } from "./pagination";
 
 
+
  export function TaskList() {
     const [searchParams, setSearchParams] = useSearchParams()
     const queryClient = useQueryClient()
@@ -36,7 +37,7 @@ if (isLoading) return <p>Loading tasks...</p>
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6">
-      <h1 className="text-lg md:text-2xl font-bold mb-4">Tasks</h1>
+      <h1 className="text-lg md:text-4xl font-bold mb-4 text-center">Tasks</h1>
       <input
          type="text"
          value={search}
@@ -44,6 +45,7 @@ if (isLoading) return <p>Loading tasks...</p>
            setSearchParams({
           page: String(page),
           search: e.target.value,
+          className: "border p-2 w-full md:w-auto",
     })
   }}
   placeholder="Search tasks..."
@@ -56,6 +58,7 @@ if (isLoading) return <p>Loading tasks...</p>
       page: String(page),
       search,
       status: e.target.value,
+      className: "border-4 border-solid border-gray-300 rounded-md p-2 w-full md:w-auto",
     })
   }}
 >
