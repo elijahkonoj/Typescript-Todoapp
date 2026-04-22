@@ -45,10 +45,10 @@ if (isLoading) return <p>Loading tasks...</p>
            setSearchParams({
           page: String(page),
           search: e.target.value,
-          className: "border p-2 w-full md:w-auto",
     })
   }}
   placeholder="Search tasks..."
+  className="border-4 border-solid border-gray-300 rounded-md p-2 w-full md:w-auto mb-4"
 />
 
 <select
@@ -58,9 +58,9 @@ if (isLoading) return <p>Loading tasks...</p>
       page: String(page),
       search,
       status: e.target.value,
-      className: "border-4 border-solid border-gray-300 rounded-md p-2 w-full md:w-auto",
     })
   }}
+  className="border-4 border-solid border-gray-300 rounded-md p-2 w-full md:w-auto mb-6"
 >
   <option value="all">All</option>
   <option value="pending">Pending</option>

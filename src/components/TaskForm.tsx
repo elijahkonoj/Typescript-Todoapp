@@ -10,10 +10,9 @@ export function TaskForm({ onCreated }: TaskFormProps) {
   const [name, setName] = useState("")
   const [description, setDescription] = useState("")
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-
-  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault()
+  const [error, setError] = useState<string | null>(null)
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {  
+    e.preventDefault() 
     setLoading(true)
     setError(null)
     try {
@@ -35,9 +34,8 @@ export function TaskForm({ onCreated }: TaskFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 md:flex-row md:items-center bg-grey p-6 rounded-lg shadow-md mb-6 ">
-      <h2 className="text-lg font-bold md:text-3xl">Create Task</h2>
-
+    
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 md:flex-row md:items-center bg-gray-100 p-6 rounded-lg shadow-md mb-6">
     <input
         type="text"
         placeholder="Task name"
