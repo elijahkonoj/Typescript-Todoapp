@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 
+
 interface TaskFormProps {
   onCreated: (task: any) => void
 }
@@ -9,10 +10,9 @@ export function TaskForm({ onCreated }: TaskFormProps) {
   const [name, setName] = useState("")
   const [description, setDescription] = useState("")
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-
-  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault()
+  const [error, setError] = useState<string | null>(null)
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {  
+    e.preventDefault() 
     setLoading(true)
     setError(null)
     try {
@@ -34,15 +34,14 @@ export function TaskForm({ onCreated }: TaskFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 md:flex-row md:items-center">
-      <h2 className="text-lg font-bold">Create Task</h2>
-
-      <input
+    
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 md:flex-row md:items-center bg-gray-100 p-6 rounded-lg shadow-md mb-6">
+    <input
         type="text"
         placeholder="Task name"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        className="border p-2 w-full"
+        className="border p-2 w-full md:w-auto"
         required
       />
 
@@ -50,7 +49,7 @@ export function TaskForm({ onCreated }: TaskFormProps) {
         placeholder="Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        className="border p-2 w-full"
+        className="border p-2 w-full md:w-auto"
       />
 
       {error && <p className="text-red-600">{error}</p>}
@@ -62,6 +61,8 @@ export function TaskForm({ onCreated }: TaskFormProps) {
       >
         {loading ? "Creating..." : "Create Task"}
       </button>
+
+      
     </form>
   )
 }
